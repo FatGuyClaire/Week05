@@ -20,16 +20,6 @@ class Species {
     this.pets = [];
   }
 
-  addPet(pet) {
-    if (pet instanceof Pets) {
-      this.pets.push(pet);
-    } else {
-      throw new Error(
-        `You can only add instance of Pet. Argument is not a pet: ${pet}`
-      );
-    }
-  }
-
   describe() {
     let result = `${this.name} \n`;
     for (let i = 0; i < this.pets.length; i++) {
@@ -82,7 +72,7 @@ class Species {
     let foodName = prompt("Enter food name for new pet:");
     let foodAmount = prompt("Enter food amount for new pet");
     let foodFrequency = prompt("Enter food frequency for new pet");
-    this.addPet(new Pets(name, birthday, foodName, foodAmount, foodFrequency));
+    this.pets.push(new Pets(name, birthday, foodName, foodAmount, foodFrequency));
   }
 
   deletePet() {
